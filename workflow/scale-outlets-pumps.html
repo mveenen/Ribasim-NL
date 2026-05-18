@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – Ribasim-NL</title>
+<title>Scale max flow rates outlets and pumps based on design events – Ribasim-NL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
+    <a class="nav-link" href="../reference/index.html"> 
 <span class="menu-text">API Reference</span></a>
   </li>  
   <li class="nav-item">
@@ -99,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Cloud storage</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../workflow/main-watersystem.html"> 
+    <a class="nav-link active" href="../workflow/main-watersystem.html" aria-current="page"> 
 <span class="menu-text">Workflows</span></a>
   </li>  
   <li class="nav-item">
@@ -123,78 +123,254 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workflow/scale-outlets-pumps.html">Scale max flow rates outlets and pumps based on design events</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workflow/main-watersystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Main watersystem</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workflow/level-controlled.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Level controlled</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workflow/gravity-controlled.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gravity controlled</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workflow/scale-outlets-pumps.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Scale max flow rates outlets and pumps based on design events</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workflow/split-basins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Split basins based on pre-split basin polygons</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workflow/couple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coupling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workflow/profile-generation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Profile generation</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#api-reference" id="toc-api-reference" class="nav-link active" data-scroll-target="#api-reference">API Reference</a>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#how-to-run" id="toc-how-to-run" class="nav-link" data-scroll-target="#how-to-run">How to run</a></li>
+  <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs">Inputs</a></li>
+  <li><a href="#main-steps" id="toc-main-steps" class="nav-link" data-scroll-target="#main-steps">Main steps</a>
   <ul class="collapse">
-  <li><a href="#hydamo" id="toc-hydamo" class="nav-link" data-scroll-target="#hydamo">HyDAMO</a></li>
-  <li><a href="#ribasim-nl" id="toc-ribasim-nl" class="nav-link" data-scroll-target="#ribasim-nl">Ribasim-NL</a></li>
+  <li><a href="#prepare-the-model" id="toc-prepare-the-model" class="nav-link" data-scroll-target="#prepare-the-model">1. Prepare the model</a></li>
+  <li><a href="#determine-which-connector-nodes-may-be-scaled" id="toc-determine-which-connector-nodes-may-be-scaled" class="nav-link" data-scroll-target="#determine-which-connector-nodes-may-be-scaled">2. Determine which connector nodes may be scaled</a></li>
+  <li><a href="#define-the-design-situations" id="toc-define-the-design-situations" class="nav-link" data-scroll-target="#define-the-design-situations">3. Define the design situations</a></li>
+  <li><a href="#run-iterative-scaling" id="toc-run-iterative-scaling" class="nav-link" data-scroll-target="#run-iterative-scaling">4. Run iterative scaling</a></li>
+  <li><a href="#update-guessed-flow-rates" id="toc-update-guessed-flow-rates" class="nav-link" data-scroll-target="#update-guessed-flow-rates">5. Update guessed flow rates</a></li>
+  <li><a href="#write-guessed-capacities-back-into-the-model" id="toc-write-guessed-capacities-back-into-the-model" class="nav-link" data-scroll-target="#write-guessed-capacities-back-into-the-model">6. Write guessed capacities back into the model</a></li>
+  <li><a href="#inspect-warnings-and-diagnostics" id="toc-inspect-warnings-and-diagnostics" class="nav-link" data-scroll-target="#inspect-warnings-and-diagnostics">7. Inspect warnings and diagnostics</a></li>
   </ul></li>
+  <li><a href="#important-assumptions" id="toc-important-assumptions" class="nav-link" data-scroll-target="#important-assumptions">Important assumptions</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Scale max flow rates outlets and pumps based on design events</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="api-reference" class="level1 doc doc-index">
-<h1 class="doc doc-index">API Reference</h1>
-<section id="hydamo" class="level2">
-<h2 class="anchored" data-anchor-id="hydamo">HyDAMO</h2>
-<p>The HyDAMO class represents the HyDAMO data model.</p>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td><a href="../reference/HyDAMO.html#hydamo.HyDAMO">HyDAMO</a></td>
-<td>Definition of the HyDAMO datamodel.</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/ExtendedGeoDataFrame.html#hydamo.ExtendedGeoDataFrame">ExtendedGeoDataFrame</a></td>
-<td>A GeoPandas GeoDataFrame with extended properties and methods.</td>
-</tr>
-<tr class="odd">
-<td><a href="../reference/find_nearest_branch.html#hydamo.find_nearest_branch">find_nearest_branch</a></td>
-<td>Determine nearest branch for each geometry.</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/possibly_intersecting.html#hydamo.possibly_intersecting">possibly_intersecting</a></td>
-<td>Efficiently determine possibly intersecting geometries using a bounding box.</td>
-</tr>
-<tr class="odd">
-<td><a href="../reference/add_styles_to_geopackage.html#hydamo.add_styles_to_geopackage">add_styles_to_geopackage</a></td>
-<td>Add styles to a HyDAMO GeoPackage</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/read_style.html#hydamo.read_style">read_style</a></td>
-<td>To make style-text sql-compatible, we need to replace single ’ to ’’.</td>
-</tr>
-</tbody>
-</table>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Workflow for iteratively scaling outlet and pump capacities in a Ribasim model until basin water levels stay within an allowed deviation from the target level. The implementation lives in <a href="https://github.com/Deltares/Ribasim-NL/tree/main/src/peilbeheerst_model/peilbeheerst_model/outlet_pump_scaler.py"><code>src/peilbeheerst_model/peilbeheerst_model/outlet_pump_scaler.py</code></a>.</p>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<p>This workflow is used after a Ribasim model has already been built and parameterized. It adjusts <code>max_flow_rate</code> for outlet and pump nodes whose discharge or supply capacity is unknown or still provisional. The script does this by repeatedly:</p>
+<ol type="1">
+<li>running the model for a design situation,</li>
+<li>checking which basins deviate too much from <code>meta_streefpeil</code>, and</li>
+<li>increasing or decreasing connector capacities accordingly.</li>
+</ol>
 </section>
-<section id="ribasim-nl" class="level2">
-<h2 class="anchored" data-anchor-id="ribasim-nl">Ribasim-NL</h2>
-<p>Ribasim-NL code.</p>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td><a href="../reference/CloudStorage.html#ribasim_nl.CloudStorage">CloudStorage</a></td>
-<td>Connect a local ’data_dir` to cloud-storage.</td>
-</tr>
-</tbody>
-</table>
-
-
+<section id="how-to-run" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-run">How to run</h2>
+<p>This workflow is intended to be run after a water board model has already been built and parameterized:</p>
+<ol type="1">
+<li>Build the Ribasim network for the water board.</li>
+<li>Prepare <code>from_to_node_function_table.csv</code>. This table links connector nodes to upstream and downstream basins and indicates whether a connector functions in drainage or demand.</li>
+<li>Open and configure <code>src/peilbeheerst_model/Parametrize/outlet_pump_scaler.py</code> from your ribasim model parametrize code. Set the model path, results path, initial guesses, design events, exclusions, and iteration settings.</li>
+<li>Run <code>src/peilbeheerst_model/Parametrize/outlet_pump_scaler.py</code> from your ribasim model parametrize code. The script writes temporary scaled models, runs Ribasim repeatedly, reads results, and updates guessed outlet and pump capacities.</li>
+</ol>
 </section>
+<section id="inputs" class="level2">
+<h2 class="anchored" data-anchor-id="inputs">Inputs</h2>
+<p>The script expects at least the following inputs to be available:</p>
+<ul>
+<li>a Ribasim model</li>
+<li>basin target levels in <code>model.basin.area.df["meta_streefpeil"]</code>,</li>
+<li>connector metadata in pump and outlet tables, including <code>meta_known_flow_rate</code>,</li>
+<li>a <code>from_to_node_function_table.csv</code> with at least:
+<ul>
+<li><code>node_id</code></li>
+<li><code>from_node_id</code></li>
+<li><code>to_node_id</code></li>
+<li>a function classification used to distinguish drainage and demand,</li>
+</ul></li>
+<li>a writable model path for the scaled model,</li>
+<li>a results path from which basin results can be read after each Ribasim run.</li>
+</ul>
+</section>
+<section id="main-steps" class="level2">
+<h2 class="anchored" data-anchor-id="main-steps">Main steps</h2>
+<section id="prepare-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="prepare-the-model">1. Prepare the model</h3>
+<p>The script first loads the model and stores the original state and forcing tables. It then derives initial basin water levels from <code>meta_streefpeil</code> using <code>set_initial_water_levels(...)</code>. For bergende basins without a direct target level, the script infers the level from the downstream doorgaande basin.</p>
+</section>
+<section id="determine-which-connector-nodes-may-be-scaled" class="level3">
+<h3 class="anchored" data-anchor-id="determine-which-connector-nodes-may-be-scaled">2. Determine which connector nodes may be scaled</h3>
+<p>Pump and outlet nodes are collected and merged into the <code>from_to_node_function_table</code>. A node is marked as not scalable when:</p>
+<ul>
+<li>it is present in <code>node_id_exclusion_list</code>, or</li>
+<li><code>meta_known_flow_rate</code> is <code>True</code> (which should be set in the outlet/pump .static table).</li>
+</ul>
+<p>The current <code>max_flow_rate</code> values are then added to the table so each iteration has a baseline.</p>
+</section>
+<section id="define-the-design-situations" class="level3">
+<h3 class="anchored" data-anchor-id="define-the-design-situations">3. Define the design situations</h3>
+<p>The script runs two scenarios:</p>
+<ul>
+<li><code>water_drainage</code></li>
+<li><code>water_demand</code></li>
+</ul>
+<p>For each situation it adjusts:</p>
+<ul>
+<li>level boundary water levels so water can flow under gravity,</li>
+<li>basin drainage and infiltration forcing via <code>set_vertical_static_forcing(...)</code>,</li>
+<li>initial outlet and pump capacities for unknown capacities.</li>
+</ul>
+</section>
+<section id="run-iterative-scaling" class="level3">
+<h3 class="anchored" data-anchor-id="run-iterative-scaling">4. Run iterative scaling</h3>
+<p>For each iteration and each situation, the script:</p>
+<ol type="1">
+<li>writes the temporary Ribasim model,</li>
+<li>runs Ribasim with <code>run_ribasim(...)</code>,</li>
+<li>reads basin water levels from the results file,</li>
+<li>computes deviation from <code>meta_streefpeil</code>,</li>
+<li>determines whether each basin exceeded the allowed deviation for too many timesteps,</li>
+<li>translates that basin-level result into a connector scaling direction.</li>
+</ol>
+<p>The direction is stored per iteration as one of:</p>
+<ul>
+<li><code>higher</code></li>
+<li><code>lower</code></li>
+<li><code>equal</code></li>
+</ul>
+</section>
+<section id="update-guessed-flow-rates" class="level3">
+<h3 class="anchored" data-anchor-id="update-guessed-flow-rates">5. Update guessed flow rates</h3>
+<p>New guesses are generated with <code>update_from_to_node_function_table_with_new_flow_rate(...)</code>. The script uses earlier iterations to decide the next guess:</p>
+<ul>
+<li>first guess: double or halve the current value,</li>
+<li>later guesses: move between previously tried values using a geometric mean,</li>
+<li>unchanged nodes: keep the latest value.</li>
+</ul>
+<p>Additional safeguards are then applied:</p>
+<ul>
+<li><code>overwrite_demand_values_with_drainage_values(...)</code> prevents demand capacities from dropping below the highest drainage guess,</li>
+<li><code>overwrite_guessed_flow_rates_if_not_allowed_to_scale(...)</code> restores original values for protected nodes,</li>
+<li><code>cap_guessed_flow_rates_at_maximum(...)</code> enforces <code>max_scaled_flow_rate</code>.</li>
+</ul>
+</section>
+<section id="write-guessed-capacities-back-into-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="write-guessed-capacities-back-into-the-model">6. Write guessed capacities back into the model</h3>
+<p>The latest guessed values are copied into:</p>
+<ul>
+<li><code>model.pump.static.df["max_flow_rate"]</code></li>
+<li><code>model.outlet.static.df["max_flow_rate"]</code></li>
+</ul>
+<p>using <code>update_max_flow_rates_in_model(...)</code>.</p>
+</section>
+<section id="inspect-warnings-and-diagnostics" class="level3">
+<h3 class="anchored" data-anchor-id="inspect-warnings-and-diagnostics">7. Inspect warnings and diagnostics</h3>
+<p>The workflow includes checks and warnings for:</p>
+<ul>
+<li>missing <code>meta_known_flow_rate</code> columns,</li>
+<li>missing target levels,</li>
+<li>connector flow rates above a configured threshold,</li>
+<li>iteration history in the <code>from_to_node_function_table</code>.</li>
+</ul>
+</section>
+</section>
+<section id="important-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="important-assumptions">Important assumptions</h2>
+<p>This workflow assumes:</p>
+<ul>
+<li><code>meta_streefpeil</code> is present and reliable,</li>
+<li>the connector-node table correctly links basins to outlet and pump nodes,</li>
+<li>design precipitation and evaporation events are representative for the scaling task,</li>
+</ul>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<p>The main outputs are:</p>
+<ul>
+<li>an updated Ribasim model with revised outlet and pump <code>max_flow_rate</code> values,</li>
+<li>an enriched <code>from_to_node_function_table</code> with iteration history,</li>
+<li>optional diagnostic plots showing how guessed capacities changed over time.</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9dbef448cbc5dd18d3767a5753777ba6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c0381a591b4acc84a696f0214b121f95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,6 +102,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="../workflow/main-watersystem.html" aria-current="page"> 
 <span class="menu-text">Workflows</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../watersystems/main.html"> 
+<span class="menu-text">Watersystems</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -155,8 +160,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../workflow/scale-outlets-pumps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Scale max flow rates outlets and pumps based on design events</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workflow/split-basins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Split basins based on pre-split basin polygons</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../workflow/couple.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Coupling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workflow/profile-generation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Profile generation</span></a>
   </div>
 </li>
     </ul>
@@ -190,12 +213,70 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Workflow for deriving and parametizing “gravity controlled systems”. They include 11 water authorities on the Eastern side of The Neterlands for which initial datasets have been prepared by SWECO. You need code in <a href="https://github.com/Deltares/Ribasim-NL/tree/main/src/ribasim_nl"><code>src/ribasim_nl</code></a>.</p>
-<p>Under <code>notebooks</code> you’ll find 3 scrips per water authority, e.g.&nbsp;<code>notebooks\aa_en_maas</code>, you can run in sequence.</p>
+<p>Under <code>notebooks</code> you’ll find 4 scripts per water authority, e.g.&nbsp;<code>notebooks\aa_en_maas</code>, you can run in sequence. These are also run in sequence in <code>main.py</code>.</p>
 <ol type="1">
 <li><code>01_fix_model.py</code> will “fix” the GIS-models supplied by Sweco in the directories <code>{authority}_2024_6_3</code> to valid Ribasim-models in the directory <code>{authority}_fix_model</code></li>
 <li><code>02_prepare_model.py</code>will read <code>{authority}_fix_model</code> and add <code>levels</code> and <code>flow_rate</code> to the model and a <code>static_data.xlsx</code> that can be reviewed. The model will be written as <code>{authority}_prepare_model</code></li>
 <li><code>03_parameterized_model.py</code> will read <code>{authority}_prepare_model</code> and <code>static_data.xlsx</code> to a model <code>{authority}_parameterized_model</code></li>
+<li><code>04_add_full_control.py</code> adds control.</li>
 </ol>
+<p>In this step control-nodes will get one of these 4 functions: - <code>drain</code>: outlet draining an area - <code>supply</code>: inlet supplying an area - <code>flow_control</code>: flow through an area in supply (drought) and drain conditions - <code>flushing</code>: an outlet with a specific flow to be maintained at any conditions (supply or drain)</p>
+<p>Explanation of a node’s <code>function</code> in terms of upstream/downstream levels, supply (aanvoer) or drain (afvoer) state:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 26%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>function</th>
+<th>state determined by</th>
+<th>flow_rate @ supply-state</th>
+<th>flow_rate @ drain-state</th>
+<th>Nodes added</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>supply</td>
+<td>downstream level</td>
+<td>capacity [m3/s]</td>
+<td>0 [m3/s]</td>
+<td>DiscreteControl</td>
+</tr>
+<tr class="even">
+<td>drain</td>
+<td>upstream level</td>
+<td>0 [m3/s]</td>
+<td>capacity [m3/s]</td>
+<td>DiscreteControl</td>
+</tr>
+<tr class="odd">
+<td>flow control</td>
+<td>upstream &amp; downstream level</td>
+<td>capacity [m3/s]</td>
+<td>capacity [m3/s]</td>
+<td>DiscreteControl</td>
+</tr>
+<tr class="even">
+<td>flushing</td>
+<td>upstream level &amp; node flow_rate</td>
+<td>demand [m3/s]</td>
+<td>capacity [m3/s]</td>
+<td>DiscreteControl + FlowDemand</td>
+</tr>
+</tbody>
+</table>
+<p>Steps 5, 6 and 7 are shared between water authorities, and live directly beneath the <code>notebooks</code> directory.</p>
+<ol start="5" type="1">
+<li><code>05_add_bergend.py</code> adds VdGaast-based storage basins (input = models are from script 4)</li>
+<li><code>06_add_synthetic_forcing.py</code> adds synthetic forcing (constant precipitation switched to constant evaporation) to the models produced by script 5</li>
+<li><code>07_add_dynamic_forcing.py</code> adds Modflow-Metaswap drainage/infiltration and WIWB precipitation/evaporation to the models produced by script 5</li>
+</ol>
+<p>Finally <code>uploaden_modellen.py</code> uploads all models produced by script 7.</p>
 
 
 
@@ -251,13 +332,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

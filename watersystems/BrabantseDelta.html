@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – Ribasim-NL</title>
+<title>brabantsedelta – Ribasim-NL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-c0381a591b4acc84a696f0214b121f95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
+    <a class="nav-link" href="../reference/index.html"> 
 <span class="menu-text">API Reference</span></a>
   </li>  
   <li class="nav-item">
@@ -103,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Workflows</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../watersystems/main.html"> 
+    <a class="nav-link active" href="../watersystems/main.html" aria-current="page"> 
 <span class="menu-text">Watersystems</span></a>
   </li>  
 </ul>
@@ -123,20 +126,120 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../watersystems/BrabantseDelta.html">Brabantse Delta</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Watersystemen (NL)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/AaenMaas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aa en Maas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/BrabantseDelta.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Brabantse Delta</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/DeDommel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">De Dommel</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/DrentsOverijsselseDelta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drents Overijsselse Delta</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/HunzeenAas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hunze en Aas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/Limburg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limburg</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/Noorderzijlvest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Noorderzijlvest</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/RijnenIJssel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rijn en IJssel</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/StichtseRijnlanden.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stichtse Rijnlanden</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/ValleienVeluwe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vallei en Veluwe</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../watersystems/Vechtstromen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vechtstromen</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#api-reference" id="toc-api-reference" class="nav-link active" data-scroll-target="#api-reference">API Reference</a>
+  <li><a href="#brabantse-delta" id="toc-brabantse-delta" class="nav-link active" data-scroll-target="#brabantse-delta">Brabantse Delta</a>
   <ul class="collapse">
-  <li><a href="#hydamo" id="toc-hydamo" class="nav-link" data-scroll-target="#hydamo">HyDAMO</a></li>
-  <li><a href="#ribasim-nl" id="toc-ribasim-nl" class="nav-link" data-scroll-target="#ribasim-nl">Ribasim-NL</a></li>
+  <li><a href="#systeembeschrijving" id="toc-systeembeschrijving" class="nav-link" data-scroll-target="#systeembeschrijving">Systeembeschrijving</a>
+  <ul class="collapse">
+  <li><a href="#wateraanvoer-vanuit-rijkswateren-bij-droogte-in-het-mark-vliet-systeem" id="toc-wateraanvoer-vanuit-rijkswateren-bij-droogte-in-het-mark-vliet-systeem" class="nav-link" data-scroll-target="#wateraanvoer-vanuit-rijkswateren-bij-droogte-in-het-mark-vliet-systeem">Wateraanvoer vanuit Rijkswateren bij droogte in het Mark-Vliet systeem</a></li>
+  <li><a href="#marksluis" id="toc-marksluis" class="nav-link" data-scroll-target="#marksluis">Marksluis</a></li>
+  <li><a href="#donge-sprangsloot-westplas-en-paterheide" id="toc-donge-sprangsloot-westplas-en-paterheide" class="nav-link" data-scroll-target="#donge-sprangsloot-westplas-en-paterheide">Donge, Sprangsloot, Westplas en Paterheide</a></li>
+  <li><a href="#made" id="toc-made" class="nav-link" data-scroll-target="#made">Made</a></li>
+  <li><a href="#fijnaard" id="toc-fijnaard" class="nav-link" data-scroll-target="#fijnaard">Fijnaard</a></li>
+  <li><a href="#dinteloord" id="toc-dinteloord" class="nav-link" data-scroll-target="#dinteloord">Dinteloord</a></li>
+  <li><a href="#steenbergen" id="toc-steenbergen" class="nav-link" data-scroll-target="#steenbergen">Steenbergen</a></li>
+  <li><a href="#slikken" id="toc-slikken" class="nav-link" data-scroll-target="#slikken">Slikken</a></li>
+  <li><a href="#oud-gastel-hoeven-leursche-haven-weimeren-en-hartleweg" id="toc-oud-gastel-hoeven-leursche-haven-weimeren-en-hartleweg" class="nav-link" data-scroll-target="#oud-gastel-hoeven-leursche-haven-weimeren-en-hartleweg">Oud-Gastel, Hoeven, Leursche haven, Weimeren en Hartleweg</a></li>
+  </ul></li>
+  <li><a href="#capaciteiten" id="toc-capaciteiten" class="nav-link" data-scroll-target="#capaciteiten">Capaciteiten</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -147,51 +250,71 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="api-reference" class="level1 doc doc-index">
-<h1 class="doc doc-index">API Reference</h1>
-<section id="hydamo" class="level2">
-<h2 class="anchored" data-anchor-id="hydamo">HyDAMO</h2>
-<p>The HyDAMO class represents the HyDAMO data model.</p>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td><a href="../reference/HyDAMO.html#hydamo.HyDAMO">HyDAMO</a></td>
-<td>Definition of the HyDAMO datamodel.</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/ExtendedGeoDataFrame.html#hydamo.ExtendedGeoDataFrame">ExtendedGeoDataFrame</a></td>
-<td>A GeoPandas GeoDataFrame with extended properties and methods.</td>
-</tr>
-<tr class="odd">
-<td><a href="../reference/find_nearest_branch.html#hydamo.find_nearest_branch">find_nearest_branch</a></td>
-<td>Determine nearest branch for each geometry.</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/possibly_intersecting.html#hydamo.possibly_intersecting">possibly_intersecting</a></td>
-<td>Efficiently determine possibly intersecting geometries using a bounding box.</td>
-</tr>
-<tr class="odd">
-<td><a href="../reference/add_styles_to_geopackage.html#hydamo.add_styles_to_geopackage">add_styles_to_geopackage</a></td>
-<td>Add styles to a HyDAMO GeoPackage</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/read_style.html#hydamo.read_style">read_style</a></td>
-<td>To make style-text sql-compatible, we need to replace single ’ to ’’.</td>
-</tr>
-</tbody>
-</table>
+<section id="brabantse-delta" class="level1">
+<h1>Brabantse Delta</h1>
+<ul>
+<li>Laatst bijgewerkt: 07-04-2026</li>
+<li><a href="https://deltares.thegood.cloud/s/KHieyrrZZdcBBHo">Laatste modelversie</a></li>
+</ul>
+<section id="systeembeschrijving" class="level2">
+<h2 class="anchored" data-anchor-id="systeembeschrijving">Systeembeschrijving</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://s3.deltares.nl/ribasim-nl/doc-image/watersystems/BrabantseDelta.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Systeembeschrijving Brabantse Delta"><img src="https://s3.deltares.nl/ribasim-nl/doc-image/watersystems/BrabantseDelta.svg" class="img-fluid figure-img" alt="Systeembeschrijving Brabantse Delta"></a></p>
+<figcaption>Systeembeschrijving Brabantse Delta</figcaption>
+</figure>
+</div>
+<p>Hieronder is de sturing van het Mark-Vliet systeem en de aanvoergebieden beschreven uit bovenstaande figuur.</p>
+<section id="wateraanvoer-vanuit-rijkswateren-bij-droogte-in-het-mark-vliet-systeem" class="level3">
+<h3 class="anchored" data-anchor-id="wateraanvoer-vanuit-rijkswateren-bij-droogte-in-het-mark-vliet-systeem">Wateraanvoer vanuit Rijkswateren bij droogte in het Mark-Vliet systeem</h3>
+<p>De Mark, Dintel, Mark-Vlietkanaal, de Roosendaalsche en Steenbergsche Vliet en het Markkanaal staan in open verbinding met elkaar. Bij droogte vindt aanvoer in eerste instantie plaats vanuit het Volkerak. Wanneer dit niet genoeg is kan via de Markduiker water aangevoerd worden.</p>
 </section>
-<section id="ribasim-nl" class="level2">
-<h2 class="anchored" data-anchor-id="ribasim-nl">Ribasim-NL</h2>
-<p>Ribasim-NL code.</p>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td><a href="../reference/CloudStorage.html#ribasim_nl.CloudStorage">CloudStorage</a></td>
-<td>Connect a local ’data_dir` to cloud-storage.</td>
-</tr>
-</tbody>
-</table>
+<section id="marksluis" class="level3">
+<h3 class="anchored" data-anchor-id="marksluis">Marksluis</h3>
+<p>De Marksluis kent in principe alleen schutverliezen. Bij een hoger waterpeil op de Mark dan op de Amertak kunnen de extra deuren worden gesloten om instroom van hoogwater richting het kanaal te voorkomen. De sluis fungeert dan tevens als waterkering.</p>
+</section>
+<section id="donge-sprangsloot-westplas-en-paterheide" class="level3">
+<h3 class="anchored" data-anchor-id="donge-sprangsloot-westplas-en-paterheide">Donge, Sprangsloot, Westplas en Paterheide</h3>
+<p><strong>Afvoer:</strong> - Via de <code>Slagen pomp</code> en <code>gemaal Keizersveer</code> wordt het water afgevoerd naar de <code>Bergsche Maas</code> - In noordoosten watert een klein gebied Gansoijen (noordoosten) via een sifon onder het Afwateringskanaal ’s-Hertogenosch-Drongelen door via het (Aa en Maas) afgevoerd naar de Bergsche Maas. Bij Waalwijk watert nog een klein gebied via gemaal Bloemendaal op het Drongelenskanaal (mondt uit in de Bergsche Maas). - Ten zuiden van het Wilhelminakanaal watert het via aflaatkunstwerk af op het Wilhelminakanaal. Het overige deel van het water wordt via een sifon (Tichelrijt) onder het Wilhelminakanaal geleid en watert af via gemaal Keizersveer op de Bergsche Maas.</p>
+<p><strong>Aanvoer:</strong> - Vanuit het Wilhelminakanaal zijn diverse inlaten die de Donge, en Paterheide van aanvoer voorzien. - Aanvoergebied de Sprangsloot ontvangt water via inlaat de Sprangse sloot vanuit het Zuiderkanaal die in de zomer op peil wordt gehouden door de Bergsche Maas ????? - De Westplas ontvangt direct water uit de Bergsche Maas</p>
+</section>
+<section id="made" class="level3">
+<h3 class="anchored" data-anchor-id="made">Made</h3>
+<p><strong>Afvoer:</strong> - Vindt plaats vanaf de <code>Mark</code>, via <code>M-V sluis</code> naar het <code>Volkerak</code> - Rechtstreeks naar de <code>Amer</code> en via de <code>Amertak</code> naar de <code>Amer</code></p>
+<p><strong>Aanvoer</strong> - De aanvoer vindt plaats via inlaten via de <code>Mark</code></p>
+</section>
+<section id="fijnaard" class="level3">
+<h3 class="anchored" data-anchor-id="fijnaard">Fijnaard</h3>
+<p><strong>Afvoer:</strong> - Vindt plaats vanaf de <code>Mark</code>, via <code>M-V sluis</code> naar het <code>Volkerak</code> - Rechtstreeks en via de <code>Roode Vaart</code>naar het <code>Hollandsch diep</code></p>
+<p><strong>Aanvoer</strong> - De aanvoer vindt plaats via inlaten via de Mark die op peil wordt gehouden door het Volkerak??</p>
+</section>
+<section id="dinteloord" class="level3">
+<h3 class="anchored" data-anchor-id="dinteloord">Dinteloord</h3>
+<p><strong>Afvoer:</strong> - Vindt plaats vanaf de <code>Mark-Vlietkanaal</code> en de <code>Dintel</code> , via <code>M-V sluis</code> naar het <code>Volkerak</code> - Vanaf de <code>Steenbergsche Vliet</code> via de <code>scheepvaartsluis</code> naar de <code>Krammer</code></p>
+<p><strong>Aanvoer</strong> - De aanvoer vindt plaats via inlaten vanaf de <code>Dintel</code> en de <code>Steenbergsche Vliet</code></p>
+</section>
+<section id="steenbergen" class="level3">
+<h3 class="anchored" data-anchor-id="steenbergen">Steenbergen</h3>
+<p><strong>Afvoer:</strong> - Vindt plaats vanaf de <code>Steenbergsche Vliet</code> via de <code>scheepvaartsluis</code> naar de <code>Krammer</code></p>
+<p><strong>Aanvoer:</strong> - Vindt plaats vanaf de <code>Steenbergsche Vliet</code>.</p>
+</section>
+<section id="slikken" class="level3">
+<h3 class="anchored" data-anchor-id="slikken">Slikken</h3>
+<p><strong>Afvoer:</strong> - Vindt plaats via een gemaal direct op het <code>Schelde Rijn-kanaal</code></p>
+<p><strong>Aanvoer:</strong> - Vindt plaats via een inlaat vanaf het <code>Zoommeer</code>.</p>
+</section>
+<section id="oud-gastel-hoeven-leursche-haven-weimeren-en-hartleweg" class="level3">
+<h3 class="anchored" data-anchor-id="oud-gastel-hoeven-leursche-haven-weimeren-en-hartleweg">Oud-Gastel, Hoeven, Leursche haven, Weimeren en Hartleweg</h3>
+<p><strong>Afvoer:</strong> - Vindt plaats vanaf de <code>Mark</code>, via <code>M-V sluis</code> naar het <code>Volkerak</code></p>
+<p><strong>Aanvoer:</strong> - De aanvoer vindt plaats via inlaten via de Mark/Markkanaal die op peil wordt gehouden door het Volkerak??</p>
+</section>
+</section>
+<section id="capaciteiten" class="level2">
+<h2 class="anchored" data-anchor-id="capaciteiten">Capaciteiten</h2>
+<p>Per kunstwerk, gespecificeerd op <code>naam</code>, <code>code</code> (waterbeheerder), <code>node_id</code> (v.h. Ribasim model) zijn hieronder de functie (<code>inlaat</code>, <code>doorlaat</code>, <code>uitlaat</code>, <code>uitlaat (doorspoeling))</code>) en de capaciteiten onder <code>aanvoer</code> en <code>afvoer</code> condities opgegeven. ## Bronnen Voor het vervaardigen van bovenstaand model is het model met versie 2023.6.3 gebruikt welke is geleverd door Sweco. Deze bewerkt, geparameteriseerd en voorzien van sturing met deze <a href="../workflow/gravity-controlled.html">workflow</a>.</p>
+<ul>
+<li>Documentatie Distributiemodel (Deel D)</li>
+</ul>
 
 
 </section>
@@ -599,6 +722,38 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox","skin":"fullscreen-lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
