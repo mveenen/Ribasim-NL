@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Profile generation – Ribasim-NL</title>
+<title>DVC (Data Version Control) – Ribasim-NL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -105,36 +105,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -165,7 +139,7 @@ window.Quarto = {
 <span class="menu-text">Cloud storage</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../workflow/main-watersystem.html" aria-current="page"> 
+    <a class="nav-link" href="../workflow/main-watersystem.html"> 
 <span class="menu-text">Workflows</span></a>
   </li>  
   <li class="nav-item">
@@ -175,7 +149,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../dev/index.html"> 
+    <a class="nav-link active" href="../dev/index.html" aria-current="page"> 
 <span class="menu-text">Contributing</span></a>
   </li>  
   <li class="nav-item compact">
@@ -194,7 +168,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workflow/profile-generation.html">Profile generation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dev/dvc.html">DVC (Data Version Control)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -208,44 +182,26 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../workflow/main-watersystem.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Main watersystem</span></a>
+  <a href="../dev/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributing</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../workflow/level-controlled.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Level controlled</span></a>
+  <a href="../dev/dvc.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">DVC (Data Version Control)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../workflow/gravity-controlled.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gravity controlled</span></a>
+  <a href="../dev/type-checking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Type checking</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../workflow/scale-outlets-pumps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Scale max flow rates outlets and pumps based on design events</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../workflow/split-basins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Split basins based on pre-split basin polygons</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../workflow/couple.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Coupling</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../workflow/profile-generation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Profile generation</span></a>
+  <a href="../dev/slurm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Running on SLURM</span></a>
   </div>
 </li>
     </ul>
@@ -258,8 +214,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#profile-generation-workflow" id="toc-profile-generation-workflow" class="nav-link active" data-scroll-target="#profile-generation-workflow">Profile generation workflow</a></li>
-  <li><a href="#profile-generation-code" id="toc-profile-generation-code" class="nav-link" data-scroll-target="#profile-generation-code">Profile generation code</a></li>
+  <li><a href="#authentication" id="toc-authentication" class="nav-link active" data-scroll-target="#authentication">Authentication</a></li>
+  <li><a href="#pulling-data" id="toc-pulling-data" class="nav-link" data-scroll-target="#pulling-data">Pulling data</a></li>
+  <li><a href="#remotes" id="toc-remotes" class="nav-link" data-scroll-target="#remotes">Remotes</a></li>
+  <li><a href="#pipeline" id="toc-pipeline" class="nav-link" data-scroll-target="#pipeline">Pipeline</a></li>
+  <li><a href="#importing-data-from-remote-storage" id="toc-importing-data-from-remote-storage" class="nav-link" data-scroll-target="#importing-data-from-remote-storage">Importing data from remote storage</a></li>
+  <li><a href="#pushing-changes" id="toc-pushing-changes" class="nav-link" data-scroll-target="#pushing-changes">Pushing changes</a></li>
   </ul>
 </nav>
     </div>
@@ -268,7 +228,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Profile generation</h1>
+<h1 class="title">DVC (Data Version Control)</h1>
 </div>
 
 
@@ -285,57 +245,350 @@ window.Quarto = {
 </header>
 
 
-<p>The generation of representative profiles is mainly relevant for water quality simulations. The profiles – represented by <span class="math inline">\(A(h)\)</span>-relations – largely determine the retention time of water in a basin, where the distinction between <em>doorgaand</em> and <em>bergend</em> is crucial: <em>doorgaand</em> represents flowing water bodies, while <em>bergend</em> represents stagnant water bodies.</p>
-<p>These profiles also form the basis for the coupling with the groundwater modelling.</p>
-<section id="profile-generation-workflow" class="level1">
-<h1>Profile generation workflow</h1>
-<p>Profiles are generated per water authority, as (1) data sources are available per water authority, and (2) data sources are formatted differently per water authority.</p>
-<p>Prior to generating the profiles, the data is preprocessed:</p>
-<ol start="0" type="1">
-<li>Preprocessing of data sources, which includes generating <code>LINESTRING Z</code>-objects of measured cross-sections, removing duplicate hydro-objects, repairing hydro-objects along HyDAMO-standards, downloading BGT-data from their web-API.</li>
-</ol>
-<p>Subsequently, the following steps are executed on a per-basin basis:</p>
-<ol type="1">
-<li>Select relevant hydro-objects and crossings (i.e., within a basin);</li>
-<li>Generate graph (or network) from hydro-objects (using <code>networkx</code>);</li>
-<li>Determine the shortest path(s) between crossings, which separates the hydro-objects as <em>doorgaand</em> versus <em>bergend</em>;</li>
-<li>Couple BGT-polygons to hydro-objects (non-intersecting BGT-polygons will be classified as <em>bergend</em> at a later stage);</li>
-<li>Estimate representative width per hydro-object based on coupled BGT-polygon’s surface area and circumference;</li>
-<li>Estimate representative depth per hydro-object based on width and hydrotope (using a look-up table);</li>
-<li>Update representative depth of hydro-objects labelled as <em>doorgaand</em> using measured cross-sections, if available;</li>
-<li>Define a trapezoidal cross-sectional profile using the representative width and depth (and a slope of <span class="math inline">\(1:3\)</span>, default);</li>
-<li>Define the <span class="math inline">\(A(h)\)</span>-relation for <em>doorgaand</em> and <em>bergend</em> separately using the length of the hydro-objects;</li>
-<li>Correct the <span class="math inline">\(A(h)\)</span>-relation of <em>bergend</em> by including non-intersecting BGT-polygons’ surface areas (as preluded to in 5.);</li>
-<li>Write two basin profile tables with <span class="math inline">\(A(h)\)</span>-relations: one for <em>doorgaand</em>, and one for <em>bergend</em>.</li>
-</ol>
+<p>We use <a href="https://dvc.org/">DVC</a> to version-control large data files (models, input datasets) without storing them in Git. DVC tracks file hashes in <code>.dvc</code> files committed to Git, while the actual data lives on remote storage.</p>
+<section id="authentication" class="level2">
+<h2 class="anchored" data-anchor-id="authentication">Authentication</h2>
+<p>Create a file <code>.dvc/config.local</code> (already gitignored) with credentials for the remotes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">['remote "goodcloud"']</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">    user </span><span class="ot">=</span><span class="st"> nhi_api</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">    password </span><span class="ot">=</span><span class="st"> &lt;RIBASIM_NL_CLOUD_PASS&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">['remote "modeldata"']</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">    user </span><span class="ot">=</span><span class="st"> nhi_api</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">    password </span><span class="ot">=</span><span class="st"> &lt;RIBASIM_NL_CLOUD_PASS&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">['remote "minio"']</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">    region </span><span class="ot">=</span><span class="st"> eu-west-1</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">    endpointurl </span><span class="ot">=</span><span class="st"> https://s3.deltares.nl</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">    access_key_id </span><span class="ot">=</span><span class="st"> &lt;MINIO_ACCESS_KEY&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="dt">    secret_access_key </span><span class="ot">=</span><span class="st"> &lt;MINIO_SECRET_KEY&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The password is the same as <code>RIBASIM_NL_CLOUD_PASS</code> in your <code>.env</code> file. The MinIO keys correspond to <code>MINIO_ACCESS_KEY</code> and <code>MINIO_SECRET_KEY</code> in <code>.env</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Since <code>pixi run install</code> runs <code>dvc pull</code>, this configuration is needed <strong>before</strong> that step.</p>
+</div>
+</div>
 </section>
-<section id="profile-generation-code" class="level1">
-<h1>Profile generation code</h1>
-<p>The profile generation is coded as standalone and intended to be executed prior to model generation, ideally once. Therefore, all relevant code is grouped inside a <code>profiles</code>-module:</p>
-<ul>
-<li>source-code: <a href="https://github.com/Deltares/Ribasim-NL/tree/main/src/ribasim_nl/ribasim_nl/profiles"><code>src/ribasim_nl/ribasim_nl/profiles</code></a>, and</li>
-<li>implementation-code: <a href="https://github.com/Deltares/Ribasim-NL/tree/main/src/peilbeheerst_model/profiles"><code>src/peilbeheerst_model/profiles</code></a>.</li>
-</ul>
-<p>This results in the following structures:</p>
-<ul>
-<li>For the source-code:</li>
-</ul>
-<pre><code>src/ribasim_nl/ribasim_nl/profiles/
- -  __init__.py
- -  &lt;source-code&gt;.py</code></pre>
-<ul>
-<li>For the implementation-code:</li>
-</ul>
-<pre><code>src/peilbeheerst_model/profiles/
- -  __init__.py
- -  prep_cross_sections.py
- -  &lt;water-authority&gt;.py</code></pre>
-<p>As part of the implementation code, there is the preprocessing of cross-sections (<a href="https://github.com/Deltares/Ribasim-NL/tree/main/src/peilbeheerst_model/profiles/prep_cross_sections.py"><code>prep_cross_sections.py</code></a>), which should be executed prior to running any of the <a href="https://github.com/Deltares/Ribasim-NL/tree/main/src/peilbeheerst_model/profiles"><code>&lt;water-authority&gt;.py</code></a> scripts. This way, the measured cross-sections are preprocessed so they are presented as <code>LINESTRING Z</code>-objects. Preprocessing of the measured cross-sections must be done per water authority:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run python src/peilbeheerst_model/profiles/prep_cross_sections.py <span class="op">&lt;</span>water-authority<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This call has to be done only once per water authority (or when changes are made to the data sources and/or source code).</p>
-<p>Subsequently, the profile tables (<em>doorgaand</em> and <em>bergend</em>) are generated/updated per water authority as well:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run python src/peilbeheerst_model/profiles/<span class="op">&lt;</span>water-authority<span class="op">&gt;</span>.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Again, this call has to be done only once per water authority (or when changes are mode to the data sources and/or source code).</p>
+<section id="pulling-data" class="level2">
+<h2 class="anchored" data-anchor-id="pulling-data">Pulling data</h2>
+<p>After authentication is set up, pull all tracked data:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run dvc pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you have local changes that you want to overwrite, add <code>--force</code>.</p>
+</section>
+<section id="remotes" class="level2">
+<h2 class="anchored" data-anchor-id="remotes">Remotes</h2>
+<p>Three remotes are configured in <code>.dvc/config</code>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 22%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Remote</th>
+<th style="text-align: left;">URL</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>minio</code> (default)</td>
+<td style="text-align: left;"><code>s3://ribasim-nl/dvc</code></td>
+<td style="text-align: left;">Primary DVC cache on MinIO</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>goodcloud</code></td>
+<td style="text-align: left;">The Good Cloud <code>/dvc</code></td>
+<td style="text-align: left;">Legacy DVC storage</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>modeldata</code></td>
+<td style="text-align: left;">The Good Cloud <code>/Ribasim modeldata</code></td>
+<td style="text-align: left;">Source data not under DVC control</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline">Pipeline</h2>
+<p>The DVC pipeline is defined in <a href="https://github.com/Deltares/Ribasim-NL/blob/main/dvc.yaml"><code>dvc.yaml</code></a>. Stages run sequentially with dependencies:</p>
+<div class="cell" data-file="_dvc-dag.mmd" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-dvc-pipeline" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dvc-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-dvc-pipeline">flowchart LR
+    node1["bathymetry"]
+    node2["bergend@aa_en_maas"]
+    node3["bergend@brabantse_delta"]
+    node4["bergend@de_dommel"]
+    node5["bergend@drents_overijsselse_delta"]
+    node6["bergend@hunze_en_aas"]
+    node7["bergend@limburg"]
+    node8["bergend@noorderzijlvest"]
+    node9["bergend@rijn_en_ijssel"]
+    node10["bergend@stichtse_rijnlanden"]
+    node11["bergend@vallei_en_veluwe"]
+    node12["bergend@vechtstromen"]
+    node13["data/Basisgegevens/Baseline/baseline-nl_land-j23_6-v1/baseline.gdb.dvc"]
+    node14["data/Basisgegevens/BuitenlandseAanvoer/aangeleverd/BuitenlandseAanvoer_V5.xlsx.dvc"]
+    node15["data/Basisgegevens/LHM/4.3/input/LHM_data.tif.dvc"]
+    node16["data/Basisgegevens/RWZI/aangeleverd/locaties/RWZI_coordinates.geojson.dvc"]
+    node17["data/Basisgegevens/Top10NL/top10nl_Compleet.gpkg.dvc"]
+    node18["data/Basisgegevens/VanDerGaast_QH/spafvoer1.tif.dvc"]
+    node19["data/Basisgegevens/profielen.dvc"]
+    node20["dynamic@aa_en_maas"]
+    node21["dynamic@brabantse_delta"]
+    node22["dynamic@de_dommel"]
+    node23["dynamic@drents_overijsselse_delta"]
+    node24["dynamic@hunze_en_aas"]
+    node25["dynamic@limburg"]
+    node26["dynamic@noorderzijlvest"]
+    node27["dynamic@rijn_en_ijssel"]
+    node28["dynamic@stichtse_rijnlanden"]
+    node29["dynamic@vallei_en_veluwe"]
+    node30["dynamic@vechtstromen"]
+    node31["feedback@amstel_gooi_en_vecht"]
+    node32["feedback@delfland"]
+    node33["feedback@hollands_noorderkwartier"]
+    node34["feedback@hollandse_delta"]
+    node35["feedback@rijnland"]
+    node36["feedback@rivierenland"]
+    node37["feedback@scheldestromen"]
+    node38["feedback@schieland_en_de_krimpenerwaard"]
+    node39["feedback@wetterskip_fryslan"]
+    node40["feedback@zuiderzeeland"]
+    node41["forcing@amstel_gooi_en_vecht"]
+    node42["forcing@delfland"]
+    node43["forcing@hollands_noorderkwartier"]
+    node44["forcing@hollandse_delta"]
+    node45["forcing@rijnland"]
+    node46["forcing@rivierenland"]
+    node47["forcing@scheldestromen"]
+    node48["forcing@schieland_en_de_krimpenerwaard"]
+    node49["forcing@wetterskip_fryslan"]
+    node50["forcing@zuiderzeeland"]
+    node51["hws_demand"]
+    node52["hws_transient"]
+    node53["koppelen"]
+    node54["parameterized@aa_en_maas"]
+    node55["parameterized@brabantse_delta"]
+    node56["parameterized@de_dommel"]
+    node57["parameterized@drents_overijsselse_delta"]
+    node58["parameterized@hunze_en_aas"]
+    node59["parameterized@limburg"]
+    node60["parameterized@noorderzijlvest"]
+    node61["parameterized@rijn_en_ijssel"]
+    node62["parameterized@stichtse_rijnlanden"]
+    node63["parameterized@vallei_en_veluwe"]
+    node64["parameterized@vechtstromen"]
+    node65["profiles@amstel_gooi_en_vecht"]
+    node66["profiles@delfland"]
+    node67["profiles@hollands_noorderkwartier"]
+    node68["profiles@hollandse_delta"]
+    node69["profiles@rijnland"]
+    node70["profiles@rivierenland"]
+    node71["profiles@scheldestromen"]
+    node72["profiles@schieland_en_de_krimpenerwaard"]
+    node73["profiles@wetterskip_fryslan"]
+    node74["profiles@zuiderzeeland"]
+    node75["rwzi"]
+    node76["samenvoegen"]
+    node1--&gt;node51
+    node2--&gt;node20
+    node3--&gt;node21
+    node4--&gt;node22
+    node5--&gt;node23
+    node6--&gt;node24
+    node7--&gt;node25
+    node8--&gt;node26
+    node9--&gt;node27
+    node10--&gt;node28
+    node11--&gt;node29
+    node12--&gt;node30
+    node13--&gt;node51
+    node14--&gt;node20
+    node14--&gt;node21
+    node14--&gt;node22
+    node14--&gt;node23
+    node14--&gt;node24
+    node14--&gt;node25
+    node14--&gt;node26
+    node14--&gt;node27
+    node14--&gt;node28
+    node14--&gt;node29
+    node14--&gt;node30
+    node15--&gt;node2
+    node15--&gt;node3
+    node15--&gt;node4
+    node15--&gt;node5
+    node15--&gt;node6
+    node15--&gt;node7
+    node15--&gt;node8
+    node15--&gt;node9
+    node15--&gt;node10
+    node15--&gt;node11
+    node15--&gt;node12
+    node16--&gt;node75
+    node17--&gt;node54
+    node17--&gt;node55
+    node17--&gt;node56
+    node17--&gt;node57
+    node17--&gt;node58
+    node17--&gt;node59
+    node17--&gt;node60
+    node17--&gt;node61
+    node17--&gt;node62
+    node17--&gt;node63
+    node17--&gt;node64
+    node18--&gt;node2
+    node18--&gt;node3
+    node18--&gt;node4
+    node18--&gt;node5
+    node18--&gt;node6
+    node18--&gt;node7
+    node18--&gt;node8
+    node18--&gt;node9
+    node18--&gt;node10
+    node18--&gt;node11
+    node18--&gt;node12
+    node19--&gt;node65
+    node19--&gt;node66
+    node19--&gt;node67
+    node19--&gt;node68
+    node19--&gt;node69
+    node19--&gt;node70
+    node19--&gt;node71
+    node19--&gt;node72
+    node19--&gt;node73
+    node19--&gt;node74
+    node20--&gt;node76
+    node21--&gt;node76
+    node22--&gt;node76
+    node23--&gt;node76
+    node24--&gt;node76
+    node25--&gt;node76
+    node26--&gt;node76
+    node27--&gt;node76
+    node28--&gt;node76
+    node29--&gt;node76
+    node30--&gt;node76
+    node31--&gt;node65
+    node32--&gt;node66
+    node33--&gt;node67
+    node34--&gt;node68
+    node35--&gt;node69
+    node36--&gt;node70
+    node37--&gt;node71
+    node38--&gt;node72
+    node39--&gt;node73
+    node40--&gt;node74
+    node41--&gt;node76
+    node42--&gt;node76
+    node43--&gt;node76
+    node44--&gt;node76
+    node45--&gt;node76
+    node46--&gt;node76
+    node47--&gt;node76
+    node48--&gt;node76
+    node49--&gt;node76
+    node50--&gt;node76
+    node51--&gt;node52
+    node51--&gt;node53
+    node52--&gt;node76
+    node54--&gt;node2
+    node55--&gt;node3
+    node56--&gt;node4
+    node57--&gt;node5
+    node58--&gt;node6
+    node59--&gt;node7
+    node60--&gt;node8
+    node61--&gt;node9
+    node62--&gt;node10
+    node63--&gt;node11
+    node64--&gt;node12
+    node65--&gt;node41
+    node66--&gt;node42
+    node67--&gt;node43
+    node68--&gt;node44
+    node69--&gt;node45
+    node70--&gt;node46
+    node71--&gt;node47
+    node72--&gt;node48
+    node73--&gt;node49
+    node74--&gt;node50
+    node75--&gt;node20
+    node75--&gt;node21
+    node75--&gt;node22
+    node75--&gt;node23
+    node75--&gt;node24
+    node75--&gt;node25
+    node75--&gt;node26
+    node75--&gt;node27
+    node75--&gt;node28
+    node75--&gt;node29
+    node75--&gt;node30
+    node75--&gt;node41
+    node75--&gt;node42
+    node75--&gt;node43
+    node75--&gt;node44
+    node75--&gt;node45
+    node75--&gt;node46
+    node75--&gt;node47
+    node75--&gt;node48
+    node75--&gt;node49
+    node75--&gt;node50
+    node75--&gt;node51
+    node76--&gt;node53
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dvc-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: DVC pipeline DAG (click to zoom)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<style>
+#fig-dvc-pipeline { cursor: zoom-in; }
+#fig-dvc-pipeline.fullscreen {
+  position: fixed; inset: 0; z-index: 9999;
+  background: white; cursor: zoom-out;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem;
+}
+#fig-dvc-pipeline.fullscreen svg { max-width: 100%; max-height: 100%; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const fig = document.getElementById("fig-dvc-pipeline");
+  if (fig) fig.addEventListener("click", () => fig.classList.toggle("fullscreen"));
+});
+</script>
+<p>Reproduce the full pipeline:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run dvc repro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reproduce a single stage:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run dvc repro dynamic@aa_en_maas</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="importing-data-from-remote-storage" class="level2">
+<h2 class="anchored" data-anchor-id="importing-data-from-remote-storage">Importing data from remote storage</h2>
+<p>Use <code>dvc import-url</code> to download a file from a remote URL and take it under DVC control. The <code>remote://modeldata</code> alias refers to The Good Cloud storage that holds source data:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run dvc import-url <span class="at">-f</span> remote://modeldata/Zuiderzeeland/modellen/Zuiderzeeland_parameterized_2025_9_0 data/Zuiderzeeland/modellen/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="pushing-changes" class="level2">
+<h2 class="anchored" data-anchor-id="pushing-changes">Pushing changes</h2>
+<p>After producing new outputs (running pipeline stages or adding new data), push to the remote:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run dvc push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Do this before pushing the updated <code>dvc.lock</code> file to git, so the data hashes referenced therein are avaiable for everyone.</p>
 
 
 </section>
